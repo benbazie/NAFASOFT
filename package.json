@@ -1,0 +1,90 @@
+{
+  "name": "gestion-personnel",
+  "version": "1.0.0",
+  "description": "Gestion du personnel et de la paie — Nafasoft",
+  "main": "./out/main/index.js",
+  "author": "AFRICA-TIC",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "rebuild": "electron-rebuild -f -w better-sqlite3",
+    "postinstall": "electron-builder install-app-deps",
+    "predist": "npm version patch --no-git-tag-version",
+    "dist": "electron-vite build && electron-builder --win",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "maitre": "node scripts/maitre.mjs",
+    "diagnostic": "electron scripts/diagnostic.cjs",
+    "icone": "electron scripts/icone.cjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "bf.nafasoft.gestionpersonnel",
+    "productName": "Nafasoft",
+    "directories": {
+      "output": "dist-app",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*",
+      "resources/**/*"
+    ],
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**"
+    ],
+    "copyright": "Copyright © 2026 AFRICA-TIC",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Nafasoft",
+      "installerLanguages": [
+        "fr_FR"
+      ],
+      "language": "1036",
+      "deleteAppDataOnUninstall": false,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "menuCategory": "Nafasoft",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "uninstallerSidebar": "build/uninstallerSidebar.bmp",
+      "installerHeader": "build/installerHeader.bmp"
+    },
+    "artifactName": "Nafasoft-Setup-${version}.${ext}",
+    "npmRebuild": false,
+    "electronDist": "node_modules/electron/dist",
+    "afterPack": "scripts/afterPack.cjs"
+  }
+}
