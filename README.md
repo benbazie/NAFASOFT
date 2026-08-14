@@ -3,8 +3,8 @@
 Application de bureau (Windows) pour la gestion du personnel et de la paie au Burkina Faso : fiches employés, contrats, planning, congés, pointage, bulletins de paie, déclarations CNSS (BNTS/DRS) et actes RH. Fonctionne **entièrement hors ligne** — aucun serveur, aucune donnée envoyée nulle part.
 
 Conçue pour deux usages :
-- **une seule entreprise** — l'application s'ouvre directement sur son dossier ;
-- **un cabinet** (comptable, agent CNSS, prestataire RH) — un portefeuille suit plusieurs employeurs, chacun dans sa propre base de données, totalement isolée des autres.
+- **une seule entreprise**  l'application s'ouvre directement sur son dossier ;
+- **un cabinet** (comptable, agent CNSS, prestataire RH) un portefeuille suit plusieurs employeurs, chacun dans sa propre base de données, totalement isolée des autres.
 
 ## Stack
 
@@ -54,4 +54,4 @@ Chaque employeur a son propre fichier SQLite, dans `%APPDATA%/gestion-personnel/
 
 ## Conçu par
 
-**AFRICA-TIC** — *Les TIC au service de l'humanité.*
+**AFRICA-TIC** *Les TIC au service de l'humanité.*
